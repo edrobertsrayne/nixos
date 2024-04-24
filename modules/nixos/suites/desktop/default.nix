@@ -1,0 +1,22 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib;
+with lib.custom; let
+  cfg = config.suites.desktop;
+in {
+  options.suites.desktop.enable = mkEnableOption "desktop environment suite";
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [libnotify];
+
+    system.fonts.enable = true;
+
+    suites.desktop.addons = {
+      hyprland.enable = true;
+    };
+  };
+}
