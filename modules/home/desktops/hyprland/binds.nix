@@ -15,6 +15,12 @@ with lib.custom; let
 
   screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
 
+  scratchpad = name:
+    builtins.concatStringsSep " && " [
+      "pypr toggle ${name}"
+      "hyprctl dispatch bringactivetotop"
+    ];
+
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -66,6 +72,13 @@ in {
           "SUPER, L, movefocus, r"
           "SUPER, K, movefocus, u"
           "SUPER, L, movefocus, d"
+
+          # pyprland
+          "SUPER SHIFT, Return, exec, ${scratchpad "term"}"
+          "SUPER SHIFT, t, exec, ${scratchpad "todoist"}"
+          "SUPER SHIFT, c, exec, ${scratchpad "chatgpt"}"
+          "SUPER SHIFT, k, exec, ${scratchpad "keep"}"
+          "SUPER, l, exec, ${scratchpad "lf"}"
 
           # screenshot
           # stop animations while screenshotting; makes black border go away

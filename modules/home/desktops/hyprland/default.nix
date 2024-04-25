@@ -42,6 +42,7 @@ in {
       hyprpaper.enable = true;
       hyprlock.enable = true;
       hypridle.enable = true;
+      pyprland.enable = true;
     };
 
     apps.terminals.alacritty.enable = true;
