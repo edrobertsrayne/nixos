@@ -20,6 +20,7 @@ in {
 
   config = {
     environment = {
+      # TODO: Which of these are actually necessary to set?
       sessionVariables = {
         XDG_CACHE_HOME = "$HOME/.cache";
         XDG_CONFIG_HOME = "$HOME/.config";
@@ -31,7 +32,6 @@ in {
       variables = {
         # Make some programs "XDG" compliant.
         LESSHISTFILE = "$XDG_CACHE_HOME/less.history";
-        WGETRC = "$XDG_CONFIG_HOME/wgetrc";
       };
       extraInit =
         concatStringsSep "\n"
