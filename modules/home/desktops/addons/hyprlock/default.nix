@@ -19,7 +19,7 @@ in {
       enable = true;
 
       general = {
-        disable_loading_bar = true;
+        disable_loading_bar = false;
         hide_cursor = false;
         no_fade_in = false;
         no_fade_out = false;
@@ -54,7 +54,7 @@ in {
           inner_color = "rgb(${base01})";
           font_color = "rgb(${base05})";
           fade_on_empty = true;
-          hide_input = true;
+          hide_input = false;
           dots_spacing = 0.3;
           dots_center = true;
           position = {
@@ -67,20 +67,7 @@ in {
       ];
 
       labels = [
-        {
-          monitor = "";
-          text = "$USER";
-          font_size = 24;
-          inherit font_family;
-          color = "rgb(${base05})";
-          position = {
-            x = -40;
-            y = -80;
-          };
-          valign = "bottom";
-          halign = "right";
-        }
-        {
+                {
           monitor = "";
           text = ''cmd[update:1000] echo "$TIME"'';
           font_size = 48;
