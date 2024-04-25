@@ -15,6 +15,8 @@ in {
 
     system.fonts.enable = true;
 
+    programs.nm-applet.enable = true;
+
     suites.desktop.addons = {
       hyprland.enable = true;
     };

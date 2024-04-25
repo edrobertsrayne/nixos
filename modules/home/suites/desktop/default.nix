@@ -44,6 +44,8 @@ in {
     };
 
     home.packages = with pkgs; [
+      blueman
+
       spotify
       vlc
 

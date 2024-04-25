@@ -67,7 +67,7 @@ in {
       ];
 
       labels = [
-                {
+        {
           monitor = "";
           text = ''cmd[update:1000] echo "$TIME"'';
           font_size = 48;

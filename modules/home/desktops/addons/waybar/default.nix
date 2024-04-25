@@ -21,7 +21,6 @@ in {
 
           modules-center = ["hyprland/workspaces"];
           modules-left = [
-            "network"
             "temperature"
             "cpu"
             "memory"

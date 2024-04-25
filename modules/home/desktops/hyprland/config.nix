@@ -57,6 +57,7 @@ in {
 
         windowrulev2 = "suppressevent maximise, class:.*";
         exec-once = [
+          "blueman-applet"
           "${pkgs.waybar}/bin/waybar"
           #"${pkgs.hyprpaper}/bin/hyprpaper"
           "${pkgs.hypridle}/bin/hypridle"
