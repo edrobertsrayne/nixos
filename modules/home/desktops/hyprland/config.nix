@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 with lib;
@@ -17,10 +16,11 @@ in {
       settings = {
         monitor = ",highres,auto,1";
         general = {
-          gaps_out = 5;
+          gaps_out = 10;
           gaps_in = 5;
           "col.active_border" = "rgb(${base07})";
           "col.inactive_border" = "rgb(${base02})";
+          resize_on_border = true;
         };
 
         env = ["QT_WAYLAND_DISABLE_WINDOWDECORATION,1"];
@@ -58,9 +58,9 @@ in {
         windowrulev2 = "suppressevent maximise, class:.*";
         exec-once = [
           "blueman-applet"
-          "${pkgs.waybar}/bin/waybar"
-          #"${pkgs.hyprpaper}/bin/hyprpaper"
-          "${pkgs.hypridle}/bin/hypridle"
+          "waybar"
+          "pypr"
+          "hypridle"
         ];
       };
     };
