@@ -16,5 +16,7 @@ in {
 
     shell.zsh.enable = true;
     shell.starship.enable = true;
+
+    services.gdrive.enable = true;
   };
 }
