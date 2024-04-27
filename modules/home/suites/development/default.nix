@@ -20,6 +20,7 @@ in {
       fuck.enable = true;
       zoxide.enable = true;
       lf.enable = true;
+      direnv.enable = true;
     };
 
     apps = {
