@@ -67,6 +67,8 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    the-nix-way.url = "github:the-nix-way/dev-templates";
   };
 
   outputs = inputs:
@@ -85,7 +87,9 @@
         allowUnfree = true;
       };
 
-      templates = import ./templates {};
+      templates =
+        import ./templates {}
+        // inputs.the-nix-way.templates;
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
