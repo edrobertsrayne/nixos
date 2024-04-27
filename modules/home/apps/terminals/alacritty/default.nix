@@ -8,7 +8,14 @@ with lib;
 with lib.custom; let
   cfg = config.apps.terminals.alacritty;
 in {
-  options.apps.terminals.alacritty.enable = mkEnableOption "Whether to enable alacritty terminal emulator";
+  options.apps.terminals.alacritty = {
+    enable = mkEnableOption "Whether to enable alacritty terminal emulator";
+    fontSize = mkOption {
+      type = types.int;
+      default = 10;
+      description = "Terminal font size.";
+    };
+  };
 
   config = mkIf cfg.enable {
     programs.alacritty = {
@@ -16,7 +23,7 @@ in {
       settings = {
         font = {
           normal.family = "JetBrainsMono Nerd Font";
-          size = 10;
+          size = cfg.fontSize;
         };
         window = {
           decorations = "Buttonless";

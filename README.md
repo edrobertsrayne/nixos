@@ -17,9 +17,10 @@
 
 ## 🖥️ Hosts
 
-| Hostname   | Details              | Role | OS  | Suites             |
-| ---------- | -------------------- | ---- | --- | ------------------ |
-| `thinkpad` | Lenovo Thinkpad 480s | 💻   | ❄   | `desktop` `gaming` |
+| Hostname   | Details               | Role | OS  | Suites             |
+| ---------- | --------------------- | ---- | --- | ------------------ |
+| `thinkpad` | Lenovo Thinkpad 480s  | 💻   | ❄  | `desktop` `gaming` |
+| `imac`     | 27" iMac Core i5 2017 | 🖥   |    | `darwin`           |
 
 ## 💡 Inspired by
 

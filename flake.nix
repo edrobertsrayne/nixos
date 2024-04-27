@@ -63,7 +63,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-darwin = {
+    darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -94,6 +94,8 @@
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
       ];
+
+      systems.modules.darwin = with inputs; [];
 
       systems.hosts.thinkpad.modules = with inputs; [
         hardware.nixosModules.lenovo-thinkpad-t480s
