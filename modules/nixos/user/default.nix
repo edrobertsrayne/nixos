@@ -32,7 +32,7 @@ in {
       inherit (cfg) name initialPassword;
       home = "/home/${cfg.name}";
       group = "users";
-      extraGroups = ["wheel" "audio" "sound" "video" "networkmanager" "input" "tty" "adbusers"] ++ cfg.extraGroups;
+      extraGroups = ["wheel" "audio" "sound" "video" "networkmanager" "input" "tty" "adbusers" "dialout"] ++ cfg.extraGroups;
       shell = pkgs.zsh;
     };
 
