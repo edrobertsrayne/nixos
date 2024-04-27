@@ -19,7 +19,7 @@
 
 | Hostname   | Details              | Role | OS  | Suites             |
 | ---------- | -------------------- | ---- | --- | ------------------ |
-| `thinkpad` | Lenovo Thinkpad 480s | 💻   | 󱄅   | `desktop` `gaming` |
+| `thinkpad` | Lenovo Thinkpad 480s | 💻   | ❄   | `desktop` `gaming` |
 
 ## 💡 Inspired by
 
