@@ -14,6 +14,7 @@ in {
       enable = true;
       nix-direnv.enable = true;
       enableZshIntegration = true;
+      config.global.warn_timeout = "5m";
     };
 
     home.sessionVariables.DIRENV_LOG_FORMAT = "";
