@@ -1,8 +1,10 @@
-<img align="center" src="./assets/flake.webp"></img>
+<p align="center"><img align="center" src="./assets/flake.webp"></img></p>
 
 # Ed's Nix Config
 
-<img align="center" src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png">
+<p align="center">
+<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png">
+</p>
 
 ## 🚀 Features
 
@@ -15,9 +17,9 @@
 
 ## 🖥️ Hosts
 
-| Hostname   | Details              | Role | OS  | Suites    |
-| ---------- | -------------------- | ---- | --- | --------- |
-| `thinkpad` | Lenovo Thinkpad 480s | 💻   | 󱄅   | `desktop` |
+| Hostname   | Details              | Role | OS  | Suites             |
+| ---------- | -------------------- | ---- | --- | ------------------ |
+| `thinkpad` | Lenovo Thinkpad 480s | 💻   | 󱄅   | `desktop` `gaming` |
 
 ## 💡 Inspired by
 
