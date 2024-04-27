@@ -28,6 +28,7 @@ in {
     };
 
     desktops.hyprland.enable = true;
+    desktops.addons.xdg.enable = true;
 
     services = {
       udiskie.enable = true;
