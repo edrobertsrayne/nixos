@@ -23,6 +23,7 @@ with lib.custom; {
     ssh.enable = true;
     dbus.implementation = "broker";
     sound.enable = true;
+    udisks2.enable = true;
   };
 
   apps.nh.enable = true;

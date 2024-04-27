@@ -29,6 +29,10 @@ in {
 
     desktops.hyprland.enable = true;
 
+    services = {
+      udiskie.enable = true;
+    };
+
     programs = {
       feh.enable = true;
       vscode.enable = true;
