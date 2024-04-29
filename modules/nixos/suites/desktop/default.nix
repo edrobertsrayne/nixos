@@ -11,6 +11,8 @@ in {
   options.suites.desktop.enable = mkEnableOption "desktop environment suite";
 
   config = mkIf cfg.enable {
+    suites.common.enable = true;
+
     environment.systemPackages = with pkgs; [libnotify];
 
     system.fonts.enable = true;
