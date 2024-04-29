@@ -23,7 +23,5 @@ with lib.custom; {
     };
   };
 
-  suites.common.enable = true;
-
   system.stateVersion = "23.11";
 }
