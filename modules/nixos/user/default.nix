@@ -14,14 +14,14 @@ in {
       default = "ed";
       description = "The name of the user's account";
     };
-    initialPassword = mkOption {
+    initialHashedPassword = mkOption {
       type = str;
-      default = "password";
+      default = "$y$j9T$l/8vfi4405Pd6Rpu1BYbM0$eFcd8f7CEbwgkacXNAaU4YcghSoy5krFXZgVmzu47j9";
       description = "The initial password to use";
     };
     extraGroups = mkOption {
       type = listOf str;
-      default = [];
+      default = ["audio" "sound" "video" "networkmanager" "input" "tty" "adbusers" "dialout"];
       description = "Groups for the user to join";
     };
   };
@@ -29,10 +29,10 @@ in {
   config = {
     users.users.${cfg.name} = {
       isNormalUser = true;
-      inherit (cfg) name initialPassword;
+      inherit (cfg) name initialHashedPassword;
       home = "/home/${cfg.name}";
       group = "users";
-      extraGroups = ["wheel" "audio" "sound" "video" "networkmanager" "input" "tty" "adbusers" "dialout"] ++ cfg.extraGroups;
+      extraGroups = ["wheel"] ++ cfg.extraGroups;
       shell = pkgs.zsh;
     };
 
