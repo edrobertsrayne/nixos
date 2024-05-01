@@ -11,7 +11,7 @@ with lib.custom; {
     ./hardware-configuration.nix
   ];
 
-hardware.raspberrypi4.enable = true;
+  hardware.raspberrypi4.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
 

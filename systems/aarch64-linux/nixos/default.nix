@@ -29,7 +29,6 @@ with lib.custom; {
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";

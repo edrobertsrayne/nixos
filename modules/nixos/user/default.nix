@@ -21,7 +21,7 @@ in {
     };
     extraGroups = mkOption {
       type = listOf str;
-      default = ["audio" "sound" "video" "networkmanager" "input" "tty" "adbusers" "dialout"];
+      default = ["networkmanager" "adbusers"];
       description = "Groups for the user to join";
     };
   };
@@ -32,7 +32,7 @@ in {
       inherit (cfg) name initialHashedPassword;
       home = "/home/${cfg.name}";
       group = "users";
-      extraGroups = ["wheel"] ++ cfg.extraGroups;
+      extraGroups = ["users" "wheel" "tty" "audio" "video" "dialout" "input"] ++ cfg.extraGroups;
       shell = pkgs.zsh;
     };
 

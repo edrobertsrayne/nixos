@@ -14,10 +14,11 @@ in {
   config =
     mkIf cfg.enable
     {
-home.packages = with pkgs; [
-inputs.nixvim.packages.${system}.default
-lazygit
-stylua
-ripgrep];
+      home.packages = with pkgs; [
+        inputs.nixvim.packages.${system}.default
+        lazygit
+        stylua
+        ripgrep
+      ];
     };
 }
