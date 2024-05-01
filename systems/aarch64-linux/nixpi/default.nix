@@ -28,6 +28,8 @@ with lib.custom; {
     udisks2.enable = true;
   };
 
+  apps.nh.enable = true;
+
   environment.systemPackages = with pkgs; [
     git
     wget
