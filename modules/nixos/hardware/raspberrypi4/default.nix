@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   config,
   ...
 }:
@@ -12,6 +11,8 @@ in {
   options.hardware.raspberrypi4.enable = mkEnableOption "Whether to enable the Raspberry Pi 4 default hardware configuration";
 
   config = mkIf cfg.enable {
+    /*
+       Causing compile errors on non-RPI systems
     hardware = {
       raspberry-pi."4".apply-overlays-dtmerge.enable = true;
       deviceTree = {
@@ -19,6 +20,7 @@ in {
         filter = "*rpi-4-*.dtb";
       };
     };
+    */
 
     # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
     boot.loader.grub.enable = false;
