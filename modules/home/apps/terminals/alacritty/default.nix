@@ -37,7 +37,7 @@ in {
         import = [
           (pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/catppuccin/alacritty/main/catppuccin-macchiato.toml";
-            hash = "sha256-m0Y8OBD9Pgjw9ARwjeD8a+JIQRDboVVCywQS8/ZBAcc=";
+            hash = "sha256-jW+m/NubNPZmhBrkcFCMjlp2DDL7kFpm8ffktlLlVjo=";
           })
         ];
       };
