@@ -68,6 +68,8 @@
     };
 
     the-nix-way.url = "github:the-nix-way/dev-templates";
+
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = inputs:
@@ -90,14 +92,21 @@
         import ./templates {}
         // inputs.the-nix-way.templates;
 
-      systems.modules.nixos = with inputs; [
-        home-manager.nixosModules.home-manager
-      ];
+      systems = {
+        modules = {
+          nixos = with inputs; [
+            home-manager.nixosModules.home-manager
+            agenix.nixosModules.default
+          ];
 
-      systems.modules.darwin = with inputs; [];
+          darwin = with inputs; [
+            agenix.nixosModules.default
+          ];
+        };
 
-      systems.hosts.thinkpad.modules = with inputs; [
-        hardware.nixosModules.lenovo-thinkpad-t480s
-      ];
+        hosts.thinkpad.modules = with inputs; [
+          hardware.nixosModules.lenovo-thinkpad-t480s
+        ];
+      };
     };
 }
