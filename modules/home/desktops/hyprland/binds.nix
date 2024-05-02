@@ -78,6 +78,7 @@ in {
           "SUPER SHIFT, t, exec, ${scratchpad "todoist"}"
           "SUPER SHIFT, c, exec, ${scratchpad "chatgpt"}"
           "SUPER SHIFT, k, exec, ${scratchpad "keep"}"
+          "SUPER SHIFT, b, exec, ${scratchpad "btm"}"
           "SUPER, l, exec, ${scratchpad "lf"}"
 
           # screenshot

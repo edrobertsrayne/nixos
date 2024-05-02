@@ -25,9 +25,15 @@ in {
       class = "scratchpad"
       size = "60% 60%"
 
-      [scratchpads.lf]
+       [scratchpads.lf]
       animation = "fromTop"
       command = "${terminal} --class scratchpad -e lf"
+      class = "scratchpad"
+      size = "60% 60%"
+
+     [scratchpads.btm]
+      animation = "fromTop"
+      command = "${terminal} --class scratchpad -e btm"
       class = "scratchpad"
       size = "60% 60%"
 

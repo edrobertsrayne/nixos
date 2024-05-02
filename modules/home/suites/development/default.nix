@@ -23,6 +23,11 @@ in {
       direnv.enable = true;
     };
 
+    custom.shell = {
+      bottom.enable = true;
+      tmux.enable = true;
+    };
+
     apps = {
       nixvim.enable = true;
       lazygit.enable = true;
