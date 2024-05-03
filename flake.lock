@@ -971,11 +971,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1714583974,
-        "narHash": "sha256-2Ag18JPH9IxzhkSMTyrRZA30uSXyj0/hF7hUZh3eP6M=",
+        "lastModified": 1714686689,
+        "narHash": "sha256-QQZ9UZNF2Bm0kGM18LfP40KNydI4e8GWL/pgiIAUesE=",
         "owner": "edrobertsrayne",
         "repo": "nixvim",
-        "rev": "2e97faaf7eba223aa9877288da50e2d54e72fb02",
+        "rev": "2f22498d1e25cc845d2b537f3c662840d0915469",
         "type": "github"
       },
       "original": {
