@@ -5,4 +5,6 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBOv0/iaSik9qILGe4RmUZodSy9AxKbr4w9RvLyRTvMJ ed@thinkpad"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHMA6YNB0ivJt5Wij0g7hb9TENZHnJWi6rsw6PQmH0ZK ed@nixpi"
   ];
-in {}
+in {
+  "influxdb.age".publicKeys = users;
+}
