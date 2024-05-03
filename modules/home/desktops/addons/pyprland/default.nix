@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  inputs,
   pkgs,
   ...
 }:
@@ -13,7 +14,7 @@ in {
   options.desktops.addons.pyprland.enable = mkEnableOption "Whether to enable pyprland plugins for hyprland.";
 
   config = mkIf cfg.enable {
-    home.packages = [pkgs.pyprland];
+    home.packages = [inputs.pyprland.packages.${pkgs.system}.pyprland];
 
     xdg.configFile."hypr/pyprland.toml".text = ''
       [pyprland]
@@ -25,13 +26,13 @@ in {
       class = "scratchpad"
       size = "60% 60%"
 
-       [scratchpads.lf]
+      [scratchpads.lf]
       animation = "fromTop"
       command = "${terminal} --class scratchpad -e lf"
       class = "scratchpad"
       size = "60% 60%"
 
-     [scratchpads.btm]
+      [scratchpads.btm]
       animation = "fromTop"
       command = "${terminal} --class scratchpad -e btm"
       class = "scratchpad"
