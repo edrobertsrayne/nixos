@@ -20,7 +20,7 @@ in {
           map-syntax = ["*.ino:C++"];
         };
       };
-
+      /*
       zsh = {
         shellAliases = {
           man = "batman";
@@ -29,6 +29,7 @@ in {
           cat = "bat";
         };
       };
+      */
     };
   };
 }
