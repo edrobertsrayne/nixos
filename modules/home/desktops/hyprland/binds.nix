@@ -10,7 +10,7 @@ with lib.custom; let
   inherit (config.suites.desktop) browser terminal;
   filemanager = "thunar";
   lockCmd = "hyprlock";
-  menuCmd = "anyrun";
+  menuCmd = "rofi -show drun";
   logoutCmd = "wlogout";
 
   screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";

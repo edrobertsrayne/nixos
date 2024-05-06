@@ -29,6 +29,7 @@ in {
 
     desktops.hyprland.enable = true;
     desktops.addons.xdg.enable = true;
+    custom.desktops.addons.rofi.enable = true;
 
     services = {
       udiskie.enable = true;
