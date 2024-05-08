@@ -7,4 +7,5 @@ let
   ];
 in {
   "influxdb.age".publicKeys = users;
+  "wireguard.age".publicKeys = users;
 }
