@@ -32,6 +32,8 @@ in {
       udisks2.enable = true;
     };
 
+    virtualisation.podman.enable = true;
+
     apps.nh.enable = true;
 
     programs.dconf.enable = true;
