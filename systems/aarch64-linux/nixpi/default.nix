@@ -30,7 +30,7 @@ with lib.custom; {
 
   custom.services = {
     blocky.enable = true;
-    wireguard.enable = true;
+    # wireguard.enable = true;
   };
 
   apps.nh.enable = true;
