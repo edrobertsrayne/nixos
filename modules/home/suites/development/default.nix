@@ -35,5 +35,9 @@ in {
 
     programs.ripgrep.enable = true;
     programs.fd.enable = true;
+
+    home.packages = with pkgs; [
+      agenix
+    ];
   };
 }
