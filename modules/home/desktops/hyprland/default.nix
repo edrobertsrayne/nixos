@@ -30,7 +30,6 @@ in {
       qt.enable = true;
       #kanshi.enable = true;
       #swaync.enable = true;
-      waybar.enable = true;
       wlogout.enable = true;
       dunst.enable = true;
       anyrun.enable = true;
@@ -40,6 +39,7 @@ in {
       hypridle.enable = true;
       pyprland.enable = true;
     };
+    custom.desktops.addons.waybar.enable = true;
 
     apps.terminals.alacritty.enable = true;
 
