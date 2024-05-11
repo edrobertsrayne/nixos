@@ -13,7 +13,7 @@ in {
   config = mkIf cfg.enable {
     suites.common.enable = true;
 
-    environment.systemPackages = with pkgs; [libnotify];
+    environment.systemPackages = with pkgs; [libnotify networkmanagerapplet];
 
     system.fonts.enable = true;
 
