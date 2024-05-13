@@ -14,6 +14,10 @@ in {
         "float,^(nm-connection-editor)$"
         "float,^(.blueman-manager-wrapped)$"
       ];
+      windowrulev2 = [
+        "workspace 9 silent, title:^(Spotify( Premium)?)$"
+        "suppressevent maximise, class:.*"
+      ];
     };
   };
 }

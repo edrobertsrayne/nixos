@@ -53,9 +53,10 @@ in {
           drop_shadow = true;
           shadow_range = 4;
           shadow_render_power = 3;
+          active_opacity = 1.0;
+          inactive_opacity = 0.75;
         };
 
-        windowrulev2 = "suppressevent maximise, class:.*";
         exec-once = [
           "blueman-applet"
           "waybar"
