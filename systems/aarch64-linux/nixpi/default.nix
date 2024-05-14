@@ -33,6 +33,14 @@ with lib.custom; {
     # wireguard.enable = true;
   };
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   apps.nh.enable = true;
 
   environment.systemPackages = with pkgs; [

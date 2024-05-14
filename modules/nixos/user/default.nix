@@ -32,7 +32,18 @@ in {
       inherit (cfg) name initialHashedPassword;
       home = "/home/${cfg.name}";
       group = "users";
-      extraGroups = ["users" "wheel" "tty" "audio" "video" "dialout" "input"] ++ cfg.extraGroups;
+      extraGroups =
+        [
+          "users"
+          "wheel"
+          "tty"
+          "audio"
+          "video"
+          "dialout"
+          "input"
+          "docker"
+        ]
+        ++ cfg.extraGroups;
       shell = pkgs.zsh;
     };
 
