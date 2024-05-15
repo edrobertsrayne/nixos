@@ -1,7 +1,5 @@
 {
-  pkgs,
   config,
-  inputs,
   lib,
   ...
 }:
@@ -10,8 +8,6 @@ with lib.custom; let
   cfg = config.desktops.addons.hyprpaper;
   inherit (config.suites.desktop) wallpaper;
 in {
-  imports = [inputs.hyprpaper.homeManagerModules.default];
-
   options.desktops.addons.hyprpaper = {
     enable = mkEnableOption "hyprpaper wallpaper utility";
   };
@@ -19,8 +15,10 @@ in {
   config = mkIf cfg.enable {
     services.hyprpaper = {
       enable = true;
-      preloads = ["${wallpaper}"];
-      wallpapers = [", ${wallpaper}"];
+      settings = {
+        preloads = ["${wallpaper}"];
+        wallpapers = [", ${wallpaper}"];
+      };
     };
   };
 }
