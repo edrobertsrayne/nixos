@@ -25,5 +25,7 @@ in {
       xdg-portal.enable = true;
       thunar.enable = true;
     };
+
+    security.pam.services.hyprlock = {};
   };
 }
