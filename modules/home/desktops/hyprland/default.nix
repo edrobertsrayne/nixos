@@ -32,7 +32,6 @@ in {
       #swaync.enable = true;
       wlogout.enable = true;
       dunst.enable = true;
-      anyrun.enable = true;
 
       hyprpaper.enable = true;
       hyprlock.enable = true;
