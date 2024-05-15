@@ -30,15 +30,8 @@ with lib.custom; {
 
   custom.services = {
     blocky.enable = true;
+    podman.enable = true;
     # wireguard.enable = true;
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
   };
 
   apps.nh.enable = true;

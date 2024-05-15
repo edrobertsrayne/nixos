@@ -32,7 +32,7 @@ in {
       udisks2.enable = true;
     };
 
-    virtualisation.podman.enable = true;
+    custom.services.podman.enable = true;
 
     apps.nh.enable = true;
 
