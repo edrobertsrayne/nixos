@@ -29,6 +29,8 @@ in {
     networking.wireless.enable = true;
     networking.wireless.networks.Wifibobs.pskRaw = "55d9313be47fb001bb4e14c6e5a7c3f882aca03fa469441a9b5602a9dfc25371";
 
+    hardware.networking.enable = mkForce false;
+
     zramSwap.enable = true;
     swapDevices = [
       {

@@ -13,34 +13,14 @@ with lib.custom; {
 
   hardware.raspberrypi4.enable = true;
 
-  security.sudo.wheelNeedsPassword = false;
-
   networking.hostName = "nixpi";
 
-  system = {
-    nix.enable = true;
-    locale.enable = true;
-  };
-
-  services = {
-    custom.avahi.enable = true;
-    ssh.enable = true;
-    udisks2.enable = true;
-  };
+  suites.common.enable = true;
 
   custom.services = {
     blocky.enable = true;
-    podman.enable = true;
     # wireguard.enable = true;
   };
-
-  apps.nh.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    git
-    wget
-    vim
-  ];
 
   system.stateVersion = "23.11";
 }

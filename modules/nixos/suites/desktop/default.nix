@@ -15,9 +15,20 @@ in {
 
     environment.systemPackages = with pkgs; [libnotify networkmanagerapplet];
 
-    system.fonts.enable = true;
+    services = {
+      dbus.implementation = mkDefault "broker";
+      sound.enable = mkDefault true;
+    };
 
-    programs.nm-applet.enable = true;
+    system = {
+      fonts.enable = mkDefault true;
+      xkb.enable = mkDefault true;
+    };
+
+    programs = {
+      nm-applet.enable = true;
+      dconf.enable = true;
+    };
 
     suites.desktop.addons = {
       hyprland.enable = true;

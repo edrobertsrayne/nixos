@@ -12,31 +12,25 @@ in {
 
   config = mkIf cfg.enable {
     system = {
-      nix.enable = true;
-      locale.enable = true;
-      fonts.enable = true;
-      xkb.enable = true;
-      backlight.enable = true;
+      nix.enable = mkDefault true;
+      locale.enable = mkDefault true;
+      backlight.enable = mkDefault true;
     };
 
-    security.sudo.wheelNeedsPassword = false;
+    security.sudo.wheelNeedsPassword = mkDefault false;
 
-    hardware.custom.bluetooth.enable = true;
-    hardware.networking.enable = true;
+    hardware.custom.bluetooth.enable = mkDefault true;
+    hardware.networking.enable = mkDefault true;
 
     services = {
-      custom.avahi.enable = true;
-      ssh.enable = true;
-      dbus.implementation = "broker";
-      sound.enable = true;
-      udisks2.enable = true;
+      custom.avahi.enable = mkDefault true;
+      ssh.enable = mkDefault true;
+      udisks2.enable = mkDefault true;
     };
 
-    custom.services.podman.enable = true;
+    custom.services.podman.enable = mkDefault true;
 
-    apps.nh.enable = true;
-
-    programs.dconf.enable = true;
+    apps.nh.enable = mkDefault true;
 
     environment.systemPackages = with pkgs; [git vim coreutils wget];
   };
