@@ -10,6 +10,8 @@ in {
   options.custom.services.blocky.enable = mkEnableOption "Whether to enable blockly adblocking.";
 
   config = mkIf cfg.enable {
+    networking.nameservers = ["127.0.0.1"];
+
     services.blocky = {
       enable = true;
       settings = {
