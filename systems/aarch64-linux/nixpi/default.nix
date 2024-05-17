@@ -19,7 +19,7 @@ with lib.custom; {
 
   custom.services = {
     blocky.enable = true;
-    # wireguard.enable = true;
+    wireguard.enable = true;
   };
 
   system.stateVersion = "23.11";

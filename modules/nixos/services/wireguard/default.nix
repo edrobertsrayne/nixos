@@ -12,7 +12,7 @@ in {
     enable = mkEnableOption "Whether to enable the wireguard host";
     externalInterface = mkOption {
       type = types.str;
-      default = "eth0";
+      default = "wlan0";
       description = "The external interface to use for the Wireguard host";
     };
   };
@@ -20,8 +20,6 @@ in {
   config = mkIf cfg.enable {
     age.secrets.wireguard = {
       file = ../../../../secrets/wireguard.age;
-      owner = "wireguard";
-      group = "wireguard";
     };
 
     networking = {
@@ -37,10 +35,10 @@ in {
           ips = ["10.100.0.1/24"]; # ip and subnet of server end of tunnel
           listenPort = 51820;
           postSetup = ''
-            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${cfg.externalInterface} -j MASQUERADE
+            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o wlan0 -j MASQUERADE
           '';
           postShutdown = ''
-            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ${cfg.externalInterface} -j MASQUERADE
+            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o wlan0 -j MASQUERADE
           '';
           privateKeyFile = config.age.secrets.wireguard.path;
           peers = [
