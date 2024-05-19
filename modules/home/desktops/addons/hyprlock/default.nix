@@ -24,7 +24,7 @@ in {
           ignore_empty_input = true;
         };
 
-        backgrounds = [
+        background = [
           {
             monitor = "";
             path = "${wallpaper}";
@@ -40,13 +40,10 @@ in {
           }
         ];
 
-        input-fields = [
+        input-field = [
           {
             monitor = "eDP-1";
-            size = {
-              width = 300;
-              height = 50;
-            };
+            size = "300, 50";
             outline_thickness = 2;
             outer_color = "rgb(${base0D})";
             inner_color = "rgb(${base01})";
@@ -55,26 +52,20 @@ in {
             hide_input = false;
             dots_spacing = 0.3;
             dots_center = true;
-            position = {
-              x = 0;
-              y = 0;
-            };
+            position = "0, 0";
             fail_color = "rgb(${base09})";
             check_color = "rgb(${base09})";
           }
         ];
 
-        labels = [
+        label = [
           {
             monitor = "";
             text = ''cmd[update:1000] echo "$TIME"'';
             font_size = 48;
             inherit font_family;
             color = "rgb(${base05})";
-            position = {
-              x = -40;
-              y = -40;
-            };
+            position = "-40, -40";
             valign = "bottom";
             halign = "right";
           }
