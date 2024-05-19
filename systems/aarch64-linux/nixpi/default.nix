@@ -14,6 +14,7 @@
     blocky.enable = true;
     wireguard.server.enable = true;
     grafana.enable = true;
+    prometheus.enable = true;
   };
 
   system.stateVersion = "23.11";
