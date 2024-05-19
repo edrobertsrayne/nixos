@@ -9,6 +9,5 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINYyLunmctaWVs/6s5wGwbNyXopjTOfxMFk0BTBT0kyy root@nixos"
   ];
 in {
-  "influxdb.age".publicKeys = systems ++ users;
   "wireguard.age".publicKeys = systems ++ users;
 }
