@@ -12,6 +12,11 @@ in {
   config = mkIf cfg.enable {
     networking.nameservers = ["127.0.0.1"];
 
+    networking.firewall = {
+      allowedTCPPorts = [53];
+      allowedUDPPorts = [53];
+    };
+
     services.blocky = {
       enable = true;
       settings = {

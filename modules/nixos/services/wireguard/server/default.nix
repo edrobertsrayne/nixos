@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.custom; let
-  cfg = config.custom.services.wireguard;
+  cfg = config.custom.services.wireguard.server;
 in {
-  options.custom.services.wireguard = {
+  options.custom.services.wireguard.server = {
     enable = mkEnableOption "Whether to enable the wireguard host";
     externalInterface = mkOption {
       type = types.str;
@@ -19,7 +19,7 @@ in {
 
   config = mkIf cfg.enable {
     age.secrets.wireguard = {
-      file = ../../../../secrets/wireguard.age;
+      file = ../../../../../secrets/wireguard.age;
     };
 
     networking = {
@@ -43,8 +43,14 @@ in {
           privateKeyFile = config.age.secrets.wireguard.path;
           peers = [
             {
+              # phone
               publicKey = "9xqt8T9gTtLTX1MjNyKJsY0CGzLqqGekvG9WUqwkyzs=";
               allowedIPs = ["10.100.0.2/32"];
+            }
+            {
+              # thinkpad
+              publicKey = "9xqt8T9gTtLTX1MjNyKJsY0CGzLqqGekvG9WUqwkyzs=";
+              allowedIPs = ["10.100.0.3/32"];
             }
           ];
         };

@@ -1,11 +1,4 @@
-{
-  lib,
-  inputs,
-  pkgs,
-  ...
-}:
-with lib;
-with lib.custom; {
+{inputs, ...}: {
   imports = [
     inputs.hardware.nixosModules.raspberry-pi-4
     ./hardware-configuration.nix
@@ -19,7 +12,7 @@ with lib.custom; {
 
   custom.services = {
     blocky.enable = true;
-    wireguard.enable = true;
+    wireguard.server.enable = true;
   };
 
   system.stateVersion = "23.11";
