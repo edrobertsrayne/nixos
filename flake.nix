@@ -25,6 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix.url = "github:danth/stylix";
+
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,10 +51,11 @@
     agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = inputs:
-    inputs.snowfall-lib.mkFlake {
-      inherit inputs;
+  outputs = inputs: let
+    lib = inputs.snowfall-lib.mkLib {
       src = ./.;
+      inherit inputs;
+
       snowfall = {
         namespace = "custom";
         meta = {
@@ -60,7 +63,9 @@
           title = "Ed's Nix dotfiles";
         };
       };
-
+    };
+  in
+    lib.mkFlake {
       channels-config = {
         allowUnfree = true;
       };
@@ -74,6 +79,7 @@
           nixos = with inputs; [
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
+            stylix.nixosModules.stylix
           ];
 
           darwin = with inputs; [

@@ -18,8 +18,6 @@ in {
         general = {
           gaps_out = 10;
           gaps_in = 5;
-          "col.active_border" = "rgb(${base07})";
-          "col.inactive_border" = "rgb(${base02})";
           resize_on_border = true;
         };
 

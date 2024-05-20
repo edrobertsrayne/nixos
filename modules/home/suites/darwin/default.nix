@@ -16,7 +16,6 @@ in {
 
     apps.terminals.alacritty = {
       enable = true;
-      fontSize = 14;
     };
   };
 }

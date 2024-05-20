@@ -15,7 +15,6 @@ in {
   config = mkIf cfg.enable {
     programs.rofi = {
       inherit (cfg) package enable;
-      font = "Noto 12";
       location = "center";
       extraConfig = {
         modi = "run,drun,window";
@@ -33,8 +32,6 @@ in {
       in
         with config.colorScheme.palette; {
           "*" = {
-            background-color = mkLiteral "transparent";
-            text-color = mkLiteral "#${base05}";
             margin = mkLiteral "0px";
             padding = mkLiteral "0px";
             spacing = mkLiteral "0px";
@@ -42,21 +39,17 @@ in {
           window = {
             width = 480;
             border-radius = mkLiteral "24px";
-            background-color = mkLiteral "#${base00}F2";
           };
           mainbox = {
             padding = mkLiteral "12px";
           };
           inputbar = {
-            background-color = mkLiteral "#${base01}";
-            border-color = mkLiteral "#${base07}F2";
             border = mkLiteral "2px";
             border-radius = mkLiteral "16px";
             padding = mkLiteral "8px 16px";
             spacing = mkLiteral "8px";
             children = map mkLiteral ["prompt" "entry"];
           };
-          prompt = {text-color = mkLiteral "#${base04}";};
           entry = {
             placeholder = "Search";
             placeholder-color = mkLiteral "#${base03}";
@@ -64,8 +57,6 @@ in {
           message = {
             margin = mkLiteral "12px 0 0 ";
             border-radius = mkLiteral "16px";
-            border-color = mkLiteral "#${base01}";
-            background-color = mkLiteral "#${base01}";
           };
           textbox = {padding = mkLiteral "8px 24px";};
           listview = {

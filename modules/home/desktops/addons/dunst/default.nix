@@ -25,16 +25,8 @@ in {
           origin = "top-right";
           transparency = 60;
           offset = "20x20";
-          font = "Noto 12";
-          background = "#${base01}";
-          foreground = "#${base05}";
-          frame_color = "#${base07}";
           frame_width = 1;
           corner_radius = 10;
-        };
-
-        urgency_critical = {
-          frame_color = "#${base08}";
         };
       };
     };

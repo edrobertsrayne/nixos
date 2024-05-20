@@ -19,10 +19,6 @@ in {
         package = pkgs.gnome.adwaita-icon-theme;
       };
 
-      theme = {
-        name = "Adwaita";
-      };
-
       gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
       gtk3.extraConfig = {
@@ -52,12 +48,5 @@ in {
     };
 
     home.sessionVariables.GTK_THEME = "Adwaita-dark";
-    home.pointerCursor = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 24;
-      gtk.enable = true;
-      x11.enable = true;
-    };
   };
 }
