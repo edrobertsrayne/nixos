@@ -29,6 +29,8 @@
 
   nix.extraOptions = "experimental-features = nix-command flakes";
 
+  documentation.enable = false;
+
   homebrew = {
     enable = true;
     caskArgs.no_quarantine = true;
@@ -42,7 +44,7 @@
       "arduino-ide"
       "microsoft-edge"
       "kicad"
-      #"google-chrome"
+      "google-chrome"
       "google-drive"
       "steam"
       "visual-studio-code"
