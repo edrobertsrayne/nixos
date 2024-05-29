@@ -25,7 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    #stylix.url = "github:danth/stylix";
+    stylix.url = "github:edrobertsrayne/stylix/hyprpaper";
 
     hyprland-contrib = {
       url = "github:hyprwm/contrib";

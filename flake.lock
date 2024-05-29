@@ -1006,15 +1006,16 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1716206302,
-        "narHash": "sha256-5Qc3aQGVyPEOuN82zVamStaV81HebHvLjk3fGfpyCPY=",
-        "owner": "danth",
+        "lastModified": 1716365537,
+        "narHash": "sha256-yAwgDX1z5xW6k2tOxLS1APtzrLgaswE9yK5AkA0hcDc=",
+        "owner": "edrobertsrayne",
         "repo": "stylix",
-        "rev": "81df8443556335016d6f0bc22630a95776a56d8b",
+        "rev": "b739954ecebb14ad7d8812821706773cc58e5ecb",
         "type": "github"
       },
       "original": {
-        "owner": "danth",
+        "owner": "edrobertsrayne",
+        "ref": "hyprpaper",
         "repo": "stylix",
         "type": "github"
       }

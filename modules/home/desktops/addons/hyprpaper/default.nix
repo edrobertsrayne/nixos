@@ -6,7 +6,6 @@
 with lib;
 with lib.custom; let
   cfg = config.desktops.addons.hyprpaper;
-  inherit (config.suites.desktop) wallpaper;
 in {
   options.desktops.addons.hyprpaper = {
     enable = mkEnableOption "hyprpaper wallpaper utility";
@@ -15,10 +14,6 @@ in {
   config = mkIf cfg.enable {
     services.hyprpaper = {
       enable = true;
-      settings = {
-        preload = ["${wallpaper}"];
-        wallpaper = [", ${wallpaper}"];
-      };
     };
   };
 }

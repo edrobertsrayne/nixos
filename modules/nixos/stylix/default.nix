@@ -11,9 +11,9 @@ with lib.custom; let
 in {
   config = {
     stylix = {
-      image = ./default.png;
+      image = ./nord-tower.png;
       polarity = "dark";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
       fonts = mkIf desktop {
         serif = {
