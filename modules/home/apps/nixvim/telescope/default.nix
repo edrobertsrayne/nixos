@@ -30,39 +30,31 @@
         };
         "<leader>/" = {
           action = "live_grep";
-          options.desc = "Grep (root dir)";
+          options.desc = "Live grep";
         };
         "<leader>:" = {
           action = "command_history, {}";
           options.desc = "Command History";
         };
-        "<leader>b" = {
-          action = "buffers, {}";
-          options.desc = "+buffer";
-        };
         "<leader>ff" = {
           action = "find_files, {}";
           options.desc = "Find project files";
-        };
-        "<leader>fr" = {
-          action = "live_grep, {}";
-          options.desc = "Find text";
         };
         "<leader>fR" = {
           action = "resume, {}";
           options.desc = "Resume";
         };
         "<leader>fg" = {
+          action = "git_files, {}";
+          options.desc = "Recent";
+        };
+        "<leader>fr" = {
           action = "oldfiles, {}";
           options.desc = "Recent";
         };
         "<leader>fb" = {
           action = "buffers, {}";
           options.desc = "Buffers";
-        };
-        "<C-p>" = {
-          action = "git_files, {}";
-          options.desc = "Search git files";
         };
         "<leader>gc" = {
           action = "git_commits, {}";
@@ -149,6 +141,23 @@
         action = "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>";
         options = {
           desc = "File browser";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>st";
+        action = "<cmd>TodoTelescope<cr>";
+        options = {
+          silent = true;
+          desc = "Todo (Telescope)";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>fp";
+        action = "<cmd>Telescope projects<CR>";
+        options = {
+          desc = "Projects";
         };
       }
     ];

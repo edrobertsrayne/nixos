@@ -29,9 +29,10 @@ in {
     };
 
     apps = {
-      nixvim.enable = true;
       lazygit.enable = true;
     };
+
+    custom.apps.nixvim.enable = true;
 
     programs.ripgrep.enable = true;
     programs.fd.enable = true;

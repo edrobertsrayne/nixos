@@ -1,24 +1,24 @@
 {
   inputs,
-  config,
   lib,
-  pkgs,
+  config,
   ...
 }:
 with lib;
 with lib.custom; let
-  cfg = config.apps.nixvim;
+  cfg = config.custom.apps.nixvim;
 in {
-  options.apps.nixvim.enable = mkEnableOption "nixvim";
+  options.custom.apps.nixvim.enable = mkEnableOption "Whether to enable nixvim";
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
 
-  config =
-    mkIf cfg.enable
-    {
-      home.packages = with pkgs; [
-        inputs.nixvim.packages.${system}.default
-        lazygit
-        stylua
-        ripgrep
-      ];
+    ./opts.nix
+    ./keymaps.nix
+  ];
+  config = mkIf cfg.enable {
+    programs.nixvim = {
+      enable = true;
+      globals.mapleader = " ";
     };
+  };
 }

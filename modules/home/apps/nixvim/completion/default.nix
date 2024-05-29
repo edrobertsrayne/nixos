@@ -1,7 +1,6 @@
 {
   programs.nixvim = {
     plugins = {
-      luasnip = {enable = true;};
       cmp-emoji = {enable = true;};
       cmp = {
         enable = true;
@@ -56,7 +55,9 @@
       cmp-buffer = {enable = true;};
       cmp-path = {enable = true;}; # file system paths
       cmp_luasnip = {enable = true;}; # snippets
-      cmp-cmdline = {enable = false;}; # autocomplete for cmdline
+      cmp-cmdline = {enable = true;}; # autocomplete for cmdline
+      cmp-latex-symbols = {enable = true;};
+      cmp-spell = {enable = true;};
     };
     extraConfigLua = ''
             luasnip = require("luasnip")

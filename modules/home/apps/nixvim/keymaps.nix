@@ -1,14 +1,33 @@
 {
   programs.nixvim.keymaps = [
+    # Files
+
     {
-      key = "<leader>e";
-      action = ":Neotree toggle filesystem left<cr>";
-      options.desc = "Explore NeoTree";
+      key = "<leader>fn";
+      action = "<cmd>enew<cr>";
+      options.desc = "New file";
+    }
+
+    # Indenting
+
+    {
+      key = "<";
+      action = "<gv";
+      mode = "v";
     }
     {
-      key = "<leader>ge";
-      action = ":Neotree toggle float git_status<cr>";
-      options.desc = "Explore Git NeoTree";
+      key = ">";
+      action = ">gv";
+      mode = "v";
+    }
+
+    # Terminal
+
+    {
+      key = "<esc><esc>";
+      action = "<c-\\><c-n>";
+      options.desc = "Enter normal mode";
+      mode = "t";
     }
   ];
 }
