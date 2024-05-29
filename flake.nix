@@ -87,6 +87,7 @@
 
           darwin = with inputs; [
             agenix.nixosModules.default
+            stylix.darwinModules.stylix
           ];
         };
 
