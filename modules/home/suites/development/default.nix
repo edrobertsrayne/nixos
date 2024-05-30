@@ -26,7 +26,6 @@ in {
     custom.shell = {
       bottom.enable = true;
       tmux.enable = true;
-      zellij.enable = true;
     };
 
     apps = {
