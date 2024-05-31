@@ -48,7 +48,6 @@
       "google-drive"
       "steam"
       "visual-studio-code"
-      "rectangle"
     ];
     taps = [];
     brews = [];
