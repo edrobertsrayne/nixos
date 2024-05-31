@@ -6,6 +6,16 @@
 with lib;
 with lib.custom; let
   cfg = config.suites.development;
+
+  hosts = ["nixpi" "thinkpad" "imac" "macbook-air"];
+  sshConfigForHost = host: ''
+    Host ${host}
+      Hostname ${host}.local
+      User ed
+      RequestTTY yes
+      RemoteCommand tmux new -A -s ssh
+  '';
+  sshConfig = builtins.concatStringsSep "\n" (map sshConfigForHost hosts);
 in {
   options.suites.development.enable = mkEnableOption "development suite";
 
@@ -34,7 +44,11 @@ in {
 
     custom.apps.nixvim.enable = true;
 
-    programs.ripgrep.enable = true;
-    programs.fd.enable = true;
+    programs = {
+      ripgrep.enable = true;
+      fd.enable = true;
+    };
+
+    home.file.".ssh/config".text = sshConfig;
   };
 }
