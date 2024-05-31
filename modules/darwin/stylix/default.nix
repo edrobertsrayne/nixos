@@ -12,7 +12,7 @@ in {
     stylix = {
       image = ./default.png;
       polarity = "dark";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
       fonts = {
         monospace = {
@@ -24,7 +24,7 @@ in {
           name = "Noto Color Emoji";
         };
         sizes = {
-          terminal = 12;
+          terminal = 14;
         };
       };
     };
