@@ -18,6 +18,7 @@ in {
   config = mkIf cfg.enable {
     programs.nixvim = {
       enable = true;
+      enableMan = false;
       globals.mapleader = " ";
     };
   };
