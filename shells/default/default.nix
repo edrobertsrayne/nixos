@@ -5,10 +5,12 @@
 }:
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
-    treefmt
+    #treefmt
     alejandra
-    shfmt
+    #shfmt
     statix
+    deadnix
+    codespell
     inputs.agenix.packages."${system}".default
   ];
 }
