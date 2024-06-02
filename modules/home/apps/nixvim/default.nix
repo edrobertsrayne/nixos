@@ -19,7 +19,10 @@ in {
     programs.nixvim = {
       enable = true;
       enableMan = false;
-      globals.mapleader = " ";
+
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
     };
   };
 }

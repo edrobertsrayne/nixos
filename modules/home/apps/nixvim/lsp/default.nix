@@ -4,29 +4,20 @@
     lsp = {
       enable = true;
       servers = {
-        html = {enable = true;};
-        lua-ls = {enable = true;};
-        nil_ls = {enable = true;};
-        marksman = {enable = true;};
-        pyright = {enable = true;};
-        gopls = {enable = true;};
-        terraformls = {enable = true;};
-        tsserver = {enable = true;};
-        yamlls = {enable = true;};
-        #ccls = {enable = true;};
-        clangd = {
-          enable = true;
-          cmd = [
-            "${pkgs.clang-tools}/bin/clangd"
-            "--offset-encoding=utf-16"
-            "--background-index"
-            "--clang-tidy"
-            "--header-insertion=iwyu"
-            "--completion-style=detailed"
-            "--function-arg-placeholders"
-            "--fallback-style=llvm"
-          ];
-        };
+        bashls.enable = true;
+        clangd.enable = true;
+        cssls.enable = true;
+        dockerls.enable = true;
+        gopls.enable = true;
+        html.enable = true;
+        lua-ls.enable = true;
+        marksman.enable = true;
+        nil_ls.enable = true;
+        pyright.enable = true;
+        svelte.enable = true;
+        terraformls.enable = true;
+        tsserver.enable = true;
+        yamlls.enable = true;
       };
       keymaps = {
         silent = true;

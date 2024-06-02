@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.none-ls = {
-    enable = true;
+    enable = false;
     enableLspFormat = true;
     updateInInsert = false;
     sources = {
@@ -10,10 +10,12 @@
       };
       diagnostics = {
         statix.enable = true;
+        deadnix.enable = true;
+        pylint.enable = true;
+        checkstyle.enable = true;
         yamllint.enable = true;
         cmake_lint.enable = true;
         cppcheck.enable = true;
-        #cpplint.enable = true;
       };
       formatting = {
         alejandra.enable = true;
@@ -39,6 +41,12 @@
         astyle.enable = true;
         cmake_format.enable = true;
         clang_format.enable = true;
+        shfmt.enable = true;
+        nixpkgs_fmt.enable = true;
+      };
+      completion = {
+        luasnip.enable = true;
+        spell.enable = true;
       };
     };
   };

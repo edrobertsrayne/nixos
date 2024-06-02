@@ -14,7 +14,7 @@
         javascriptreact = [["prettierd" "prettier"]];
         typescript = [["prettierd" "prettier"]];
         typescriptreact = [["prettierd" "prettier"]];
-        python = ["black"];
+        python = ["isort" "black"];
         java = ["google-java-format"];
         lua = ["stylua"];
         nix = ["alejandra"];
@@ -22,6 +22,8 @@
         rust = ["rustfmt"];
         yaml = ["yamllint" "yamlfmt"];
         c = [["astyle" "clang-format"]];
+        "*" = ["codespell"]; # run on all filetypes
+        "_" = ["trim_whitespace"]; # run on filetypes with no formatter
       };
     };
 
