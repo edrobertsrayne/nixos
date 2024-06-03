@@ -13,7 +13,7 @@ with lib.custom; let
       Hostname ${host}.local
       User ed
       RequestTTY yes
-      RemoteCommand tmux new -A -s ssh
+      RemoteCommand tmux -u new -A -s ssh
   '';
   sshConfig = builtins.concatStringsSep "\n" (map sshConfigForHost hosts);
 in {
