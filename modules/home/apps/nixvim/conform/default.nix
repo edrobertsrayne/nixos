@@ -14,7 +14,7 @@
         javascriptreact = [["prettierd" "prettier"]];
         typescript = [["prettierd" "prettier"]];
         typescriptreact = [["prettierd" "prettier"]];
-        python = ["isort" "black"];
+        python = ["isort" "ruff"];
         java = ["google-java-format"];
         lua = ["stylua"];
         nix = ["alejandra"];

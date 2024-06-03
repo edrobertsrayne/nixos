@@ -13,7 +13,7 @@
         lua-ls.enable = true;
         marksman.enable = true;
         nil_ls.enable = true;
-        pyright.enable = true;
+        ruff-lsp.enable = true;
         svelte.enable = true;
         terraformls.enable = true;
         tsserver.enable = true;
