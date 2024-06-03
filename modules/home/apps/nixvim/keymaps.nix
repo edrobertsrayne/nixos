@@ -4,7 +4,7 @@
 
     {
       key = "<leader>fn";
-      action = "<cmd>enew<cr>";
+      action = "<cmd>new<cr>";
       options.desc = "New file";
     }
 

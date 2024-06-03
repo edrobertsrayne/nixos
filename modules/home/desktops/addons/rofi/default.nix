@@ -9,7 +9,7 @@ with lib.custom; let
   cfg = config.custom.desktops.addons.rofi;
 in {
   options.custom.desktops.addons.rofi = {
-    enable = mkEnableOption "Whether to eneable rofi application launcher.";
+    enable = mkEnableOption "Whether to enable rofi application launcher.";
     package = mkPackageOption pkgs "rofi-wayland" {};
   };
   config = mkIf cfg.enable {

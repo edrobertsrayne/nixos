@@ -11,7 +11,7 @@ in {
 
   config = mkIf cfg.enable {
     programs.thunar.enable = true;
-    programs.xfconf.enable = true; # all prefernces to be saved
+    programs.xfconf.enable = true; # all preferences to be saved
     services.tumbler.enable = true; # support for thumbnails
   };
 }

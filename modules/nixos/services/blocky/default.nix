@@ -29,7 +29,7 @@ in {
           upstream = "https://one.one.one.one/dns-query";
           ips = ["1.1.1.1" "1.0.0.1"];
         };
-        #Enable Blocking of certian domains.
+        #Enable Blocking of certain domains.
         blocking = {
           blackLists = {
             ads = ["https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"];
