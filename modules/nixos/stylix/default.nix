@@ -6,7 +6,6 @@
 }:
 with lib;
 with lib.custom; let
-  cfg = config.custom.stylix;
   desktop = config.suites.desktop.enable;
 in {
   config = {

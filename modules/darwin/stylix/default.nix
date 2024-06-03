@@ -5,9 +5,7 @@
   ...
 }:
 with lib;
-with lib.custom; let
-  cfg = config.custom.stylix;
-in {
+with lib.custom; {
   config = {
     stylix = {
       image = ./default.png;
