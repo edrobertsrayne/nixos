@@ -12,7 +12,10 @@ in {
   config = mkIf cfg.enable {
     suites.development.enable = true;
 
-    home.stateVersion = "23.11";
+    home = {
+      stateVersion = "23.11";
+      enableNixpkgsReleaseCheck = false;
+    };
 
     apps.terminals.alacritty = {
       enable = true;
