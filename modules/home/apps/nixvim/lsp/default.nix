@@ -1,4 +1,4 @@
-{ ...}: {
+{...}: {
   programs.nixvim.plugins = {
     lsp-format = {enable = true;};
     lsp = {
@@ -12,7 +12,7 @@
         html.enable = true;
         lua-ls.enable = true;
         marksman.enable = true;
-        nil_ls.enable = true;
+        nil-ls.enable = true;
         ruff-lsp.enable = true;
         svelte.enable = true;
         terraformls.enable = true;

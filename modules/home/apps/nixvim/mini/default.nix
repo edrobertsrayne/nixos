@@ -38,6 +38,7 @@ in {
         };
         silent = false;
       };
+      comment = {};
       pairs = {};
       surround = {};
       starter = {
