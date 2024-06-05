@@ -12,6 +12,7 @@ in {
   config = mkIf cfg.enable {
     services.yabai = {
       enable = true;
+      enableScriptingAddition = true;
       config = {
         layout = "bsp";
         window_placement = "second_child";
