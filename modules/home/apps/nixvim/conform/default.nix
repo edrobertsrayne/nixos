@@ -18,7 +18,7 @@
         java = ["google-java-format"];
         lua = ["stylua"];
         nix = ["alejandra"];
-        markdown = [["prettierd" "prettier"]];
+        markdown = [["mdformat"]];
         rust = ["rustfmt"];
         yaml = ["yamllint" "yamlfmt"];
         c = [["astyle" "clang-format"]];
