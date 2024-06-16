@@ -10,9 +10,10 @@ with lib.custom; let
 in {
   config = {
     stylix = {
-      image = ./nord-tower.png;
+      image = ./forest.png;
       polarity = "dark";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+      #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
       cursor = mkIf desktop {
         package = pkgs.bibata-cursors;
