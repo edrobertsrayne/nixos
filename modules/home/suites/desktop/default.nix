@@ -60,6 +60,7 @@ in {
     custom = {
       desktops.addons.rofi.enable = true;
       apps.zathura.enable = true;
+      apps.vscode.enable = true;
     };
 
     services = {
@@ -68,7 +69,6 @@ in {
 
     programs = {
       feh.enable = true;
-      vscode.enable = true;
 
       chromium = {
         enable = true;
