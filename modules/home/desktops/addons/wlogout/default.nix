@@ -7,7 +7,7 @@
 with lib;
 with lib.custom; let
   cfg = config.desktops.addons.wlogout;
-  inherit (config.suites.desktop) wallpaper;
+
   bgImageSection = name: ''
     #${name} {
       border-radius: 20px;
@@ -15,11 +15,23 @@ with lib.custom; let
       background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/${name}.png"));
     }
   '';
+
+  colorize = "40";
+  fill = "black";
+  blur = "0x8";
+
+  wallpaper = pkgs.runCommand "blurred.png" {} ''
+    ${pkgs.imagemagick}/bin/convert "${config.stylix.image}" \
+    -fill ${fill} \
+    -colorize "${colorize}%" \
+    -blur ${blur} \
+    $out
+  '';
 in {
   options.desktops.addons.wlogout.enable = mkEnableOption "Whether to enable wlogout";
 
   config = mkIf cfg.enable {
-    programs.wlogout = with config.colorScheme.palette; {
+    programs.wlogout = with config.lib.stylix.colors; {
       enable = true;
 
       layout = [
@@ -61,14 +73,13 @@ in {
         }
       ];
 
-      style = ''
+      style = with config.stylix.fonts; ''
         * {
-          font-family: Font Awesome, Noto;
+          font-family: ${emoji.name}, ${sansSerif.name};
         }
 
         window {
           background-image: url("${wallpaper}");
-          background-color: rgba(0, 0, 0, 0.8);
         }
 
         button {
