@@ -41,13 +41,13 @@ in {
         [
           "SUPER, Return, exec, ${terminal}"
           "SUPER, B, exec, ${browser}"
-          "SUPER SHIFT, F, exec, ${filemanager}"
+          "SUPER, F, exec, ${filemanager}"
           "SUPER SHIFT, Q, exec, ${logoutCmd}"
           "SUPER, Space, exec, ${menuCmd}"
           "SUPER SHIFT, L, exec, ${lockCmd}"
 
           # windows
-          "SUPER, F, fullscreen"
+          "SUPER SHIFT, F, fullscreen"
           "SUPER, G, togglegroup"
           "SUPER SHIFT, N, changegroupactive, f"
           "SUPER SHIFT, P, changegroupactive, b"
@@ -79,7 +79,7 @@ in {
           "SUPER SHIFT, c, exec, ${scratchpad "chatgpt"}"
           "SUPER SHIFT, k, exec, ${scratchpad "keep"}"
           "SUPER SHIFT, b, exec, ${scratchpad "btm"}"
-          "SUPER, l, exec, ${scratchpad "lf"}"
+          #"SUPER, l, exec, ${scratchpad "lf"}"
 
           # screenshot
           # stop animations while screenshotting; makes black border go away
