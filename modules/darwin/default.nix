@@ -5,10 +5,7 @@
     loginShell = pkgs.zsh;
   };
 
-  fonts = {
-    fontDir.enable = true;
-    fonts = [(pkgs.nerdfonts.override {fonts = ["JetBrainsMono" "Meslo"];})];
-  };
+  fonts.packages = [(pkgs.nerdfonts.override {fonts = ["JetBrainsMono" "Meslo"];})];
 
   system = {
     keyboard = {
