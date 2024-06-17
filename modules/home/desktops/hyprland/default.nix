@@ -33,7 +33,6 @@ in {
       wlogout.enable = true;
       dunst.enable = true;
 
-      hyprpaper.enable = true;
       hyprlock.enable = true;
       hypridle.enable = true;
       pyprland.enable = true;

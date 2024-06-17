@@ -10,6 +10,7 @@ with lib.custom; let
 in {
   config = {
     stylix = {
+      enable = true;
       image = ./forest.png;
       polarity = "dark";
       #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
