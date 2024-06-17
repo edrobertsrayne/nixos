@@ -28,10 +28,6 @@ in {
     };
 
     stylix = {
-      cursor = {
-        package = pkgs.nordzy-cursor-theme;
-        name = "Nordzy-cursors";
-      };
       fonts = {
         serif = {
           package = pkgs.noto-fonts;
