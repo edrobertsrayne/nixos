@@ -13,7 +13,12 @@ in {
   config = mkIf cfg.enable {
     suites.common.enable = true;
 
-    environment.systemPackages = with pkgs; [libnotify networkmanagerapplet];
+    environment.systemPackages = with pkgs; [
+      libnotify
+      networkmanagerapplet
+      bottles
+      quickemu
+    ];
 
     services = {
       dbus.implementation = mkDefault "broker";
