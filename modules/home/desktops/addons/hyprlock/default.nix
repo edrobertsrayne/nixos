@@ -7,7 +7,8 @@ with lib;
 with lib.custom; let
   cfg = config.desktops.addons.hyprlock;
   font_family = "Roboto";
-  inherit (config.suites.desktop) wallpaper;
+  #inherit (config.suites.desktop) wallpaper;
+  wallpaper = config.stylix.image;
 in {
   options.desktops.addons.hyprlock.enable = mkEnableOption "hyprlock";
 
