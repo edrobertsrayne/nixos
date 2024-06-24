@@ -4,7 +4,7 @@
     lsp = {
       enable = true;
       servers = {
-        bashls.enable = true;
+        # bashls.enable = true;
         clangd.enable = true;
         cssls.enable = true;
         dockerls.enable = true;
