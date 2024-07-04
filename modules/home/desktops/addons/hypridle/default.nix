@@ -7,6 +7,13 @@
 with lib;
 with lib.custom; let
   cfg = config.desktops.addons.hypridle;
+
+  suspendScript = pkgs.writeShellScript "suspend-script" ''
+    ${pkgs.pipewire}/bin/pw-cli i all 2>&1 | ${pkgs.ripgrep}/bin/sh
+    if [ $? == 1 ]; then
+      ${pkgs.systemd}/bin/systemctl suspend
+    fi
+  '';
 in {
   options.desktops.addons.hypridle.enable = mkEnableOption "hypridle idle daemon";
 
@@ -15,24 +22,32 @@ in {
       enable = true;
       settings = {
         general = {
-          before_sleep_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
-          lock_cmd = lib.getExe config.programs.hyprlock.package;
-          after_sleep_cmd = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
-          ignore_dbus_inhibit = false;
+          before_sleep_cmd = "loginctl lock-session";
+          lock_cmd = "pidof hyprlock || hyprlock";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
         };
         listener = [
           {
-            timeout = 600;
+            # turn monitor brightness right down
+            timeout = 150;
+            on-timeout = "brightnessctl -s set 10";
+            on-resume = "brightnessctl -r";
+          }
+          {
+            # lock screen
+            timeout = 300;
             on-timeout = "${pkgs.systemd}/bin/loginctl lock-session";
           }
           {
-            timeout = 660;
+            # screen off
+            timeout = 330;
             on-timeout = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
             on-resume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
           }
           {
-            timeout = 1800;
-            on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
+            # suspend
+            timeout = 600;
+            on-timeout = suspendScript.outPath;
           }
         ];
       };
