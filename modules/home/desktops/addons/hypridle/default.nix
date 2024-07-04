@@ -23,7 +23,7 @@ in {
       settings = {
         general = {
           before_sleep_cmd = "loginctl lock-session";
-          lock_cmd = "pidof hyprlock || hyprlock";
+          lock_cmd = "pkill hyprlock && hyprlock";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
         listener = [
