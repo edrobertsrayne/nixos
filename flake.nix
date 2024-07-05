@@ -18,8 +18,6 @@
     # temporary fix while change is merged into the main repo
     snowfall-lib.inputs.flake-utils-plus.url = "github:fl42v/flake-utils-plus";
 
-    nix-colors.url = "github:misterio77/nix-colors";
-
     comma = {
       url = "github:nix-community/comma";
       inputs.nixpkgs.follows = "nixpkgs";

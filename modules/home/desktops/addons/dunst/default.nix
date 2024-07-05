@@ -11,7 +11,7 @@ in {
   options.desktops.addons.dunst.enable = mkEnableOption "Whether to enable dunst notifications";
 
   config = mkIf cfg.enable {
-    services.dunst = with config.colorScheme.palette; {
+    services.dunst = {
       enable = true;
       iconTheme = {
         name = "adwaita-icon-theme";

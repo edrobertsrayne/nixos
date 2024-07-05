@@ -8,7 +8,7 @@ with lib.custom; let
   cfg = config.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
-    wayland.windowManager.hyprland = with config.colorScheme.palette; {
+    wayland.windowManager.hyprland = {
       enable = true;
 
       xwayland.enable = true;

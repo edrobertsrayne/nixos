@@ -12,7 +12,7 @@ in {
   options.custom.desktops.addons.waybar.enable = mkEnableOption "waybar";
 
   config = mkIf cfg.enable {
-    programs.waybar = with config.colorScheme.palette; {
+    programs.waybar = {
       enable = true;
       systemd.enable = false;
     };

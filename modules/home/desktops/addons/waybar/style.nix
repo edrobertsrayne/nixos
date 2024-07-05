@@ -8,13 +8,8 @@ with lib.custom; let
   cfg = config.custom.desktops.addons.waybar;
 in {
   config = mkIf cfg.enable {
-    programs.waybar = with config.colorScheme.palette; let
+    programs.waybar = let
       transition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-      base = "#${base00}";
-      mantle = "#${base01}";
-      surface = "#${base02}";
-      accent = "#${base07}";
-      text = "#${base05}";
     in {
       style = ''
         * {
@@ -22,8 +17,6 @@ in {
           font-size: 14px;
         }
         window#waybar {
-          background: ${base};
-          color: ${text};
           opacity: 0.6;
         }
         #memory, #clock, #cpu, #disk, #battery, #bluetooth, #temperature, #network, #tray, #idle_inhibitor {
@@ -32,18 +25,18 @@ in {
         }
         #clock {
           border-radius: 10px;
-          background: ${accent};
-          color: ${base};
+          color: @base00;
+          background: @base07;
         }
         #workspaces button {
           padding: 0px 5px;
           margin: 4px 3px;
           border-radius: 10px;
           border: 0px;
-          color: ${accent};
-          background: ${mantle};
           opacity: 0.5;
           transition: ${transition};
+          color: @base07;
+          background: @base01;
 
         }
         #workspaces button.active {
@@ -51,17 +44,17 @@ in {
           margin: 4px 3px;
           border-radius: 10px;
           border: 0px;
-          color: ${base};
-          background: ${accent};
           transition: ${transition};
           opacity: 1.0;
+          color: @base00;
+          background: @base07;
         }
         #workspaces button:hover {
           border-radius: 10px;
-          color: ${text};
-          background: ${surface};
           opacity: 0.8;
           transition: ${transition};
+          color: @base05;
+          background: @base02;
         }
         @keyframes swiping {
           0% {
