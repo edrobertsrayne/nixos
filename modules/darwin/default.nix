@@ -46,7 +46,7 @@
       "steam"
       "visual-studio-code"
     ];
-    taps = [];
-    brews = [];
+    taps = ["koekeishiya/formulae"];
+    brews = ["yabai"];
   };
 }

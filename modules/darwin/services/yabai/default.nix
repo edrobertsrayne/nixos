@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -12,8 +13,16 @@ in {
   config = mkIf cfg.enable {
     services.yabai = {
       enable = true;
+      package = builtins.path {
+        path =
+          if pkgs.stdenv.hostPlatform.isAarch64
+          then /opt/homebrew
+          else /usr/local;
+        filter = path: type: type == "directory" || builtins.baseNameOf path == "yabai";
+      };
       enableScriptingAddition = true;
       config = {
+        auto_balance = "on";
         layout = "bsp";
         window_placement = "second_child";
         top_padding = 10;
