@@ -1,0 +1,9 @@
+keys:
+  - &ed_nixpi age1ng05mqxjfvzhwfrgnpxd0se6neqsletw6dktu5jy6snxm9sd8feq9mleps
+  - &host_nixpi age1m0es7fguuqyjerdda8xnsst3zuj4n0sne53xux2sp8qj4mmxq4esvz6585
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+        - *ed_nixpi
+        - *host_nixpi

@@ -12,5 +12,8 @@ pkgs.mkShell {
     mdformat
     vale
     markdownlint-cli
+    yamllint
+    age
+    sops
   ];
 }

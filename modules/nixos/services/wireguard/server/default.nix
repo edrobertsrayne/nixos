@@ -15,6 +15,10 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = [pkgs.wireguard-tools];
 
+    sops.secrets = {
+      "wireguard/server/private-key" = {};
+    };
+
     networking.firewall.interfaces."wg0" = {
       allowedTCPPorts = [53];
       allowedUDPPorts = [53];
@@ -22,12 +26,16 @@ in {
     networking.firewall = {
       allowedUDPPorts = [51820];
     };
+    networking.useNetworkd = true;
+
     services.resolved.extraConfig = ''
       DNSStubListener=no
     '';
+
     boot.kernel.sysctl = {
       "net.ipv4.conf.all.forwarding" = true;
     };
+
     services.dnsmasq =
       if config.custom.services.blocky.enable
       then {enable = false;}
@@ -35,6 +43,7 @@ in {
         enable = true;
         settings.interface = "wg0";
       };
+
     systemd.network = {
       netdevs = {
         "90-wg0" = {
@@ -43,7 +52,7 @@ in {
             Name = "wg0";
           };
           wireguardConfig = {
-            PrivateKeyFile = config.age.secrets.wg-pk-server.path;
+            PrivateKeyFile = config.sops.secrets."wireguard/server/private-key".path;
             ListenPort = 51820;
           };
           wireguardPeers = [
@@ -55,25 +64,15 @@ in {
                 PersistentKeepalive = 15;
               };
             }
-            # client 2
-            {
-              wireguardPeerConfig = {
-                PublicKey = "juQP6cIW/eAgZomARSEZl3MIhLWhIsy8TYnd432chTE=";
-                AllowedIPs = ["10.100.0.3"];
-                PersistentKeepalive = 15;
-              };
-            }
           ];
         };
       };
-      networks = {
-        "90-wg0" = {
-          matchConfig = {Name = "wg0";};
-          address = ["10.100.0.1/24"];
-          networkConfig = {
-            IPForward = true;
-            IPMasquerade = "ipv4";
-          };
+      networks.wg0 = {
+        matchConfig = {Name = "wg0";};
+        address = ["10.100.0.1/24"];
+        networkConfig = {
+          IPForward = true;
+          IPMasquerade = "ipv4";
         };
       };
     };
