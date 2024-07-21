@@ -9,7 +9,6 @@ pkgs.mkShell {
     statix
     deadnix
     codespell
-    inputs.agenix.packages."${system}".default
     mdformat
     vale
     markdownlint-cli

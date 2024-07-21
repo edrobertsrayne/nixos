@@ -34,7 +34,6 @@
     };
 
     nixvim = {
-      # url = "github:edrobertsrayne/nixvim";
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -46,7 +45,7 @@
 
     the-nix-way.url = "github:the-nix-way/dev-templates";
 
-    agenix.url = "github:ryantm/agenix";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = inputs: let
@@ -76,12 +75,11 @@
         modules = {
           nixos = with inputs; [
             home-manager.nixosModules.home-manager
-            agenix.nixosModules.default
             stylix.nixosModules.stylix
+            sops-nix.nixosModules.sops
           ];
 
           darwin = with inputs; [
-            agenix.nixosModules.default
             stylix.darwinModules.stylix
           ];
         };
