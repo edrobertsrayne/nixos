@@ -1,7 +1,7 @@
 {
   config,
-  pkgs,
   lib,
+  pkgs,
   ...
 }:
 with lib;
@@ -10,49 +10,70 @@ with lib.custom; let
 in {
   options.custom.services.wireguard.server = {
     enable = mkEnableOption "Whether to enable the wireguard host";
-    externalInterface = mkOption {
-      type = types.str;
-      default = "wlan0";
-      description = "The external interface to use for the Wireguard host";
-    };
   };
 
   config = mkIf cfg.enable {
-    age.secrets.wireguard = {
-      file = ../../../../../secrets/wireguard.age;
+    environment.systemPackages = [pkgs.wireguard-tools];
+
+    networking.firewall.interfaces."wg0" = {
+      allowedTCPPorts = [53];
+      allowedUDPPorts = [53];
     };
-
-    networking = {
-      nat = {
+    networking.firewall = {
+      allowedUDPPorts = [51820];
+    };
+    services.resolved.extraConfig = ''
+      DNSStubListener=no
+    '';
+    boot.kernel.sysctl = {
+      "net.ipv4.conf.all.forwarding" = true;
+    };
+    services.dnsmasq =
+      if config.custom.services.blocky.enable
+      then {enable = false;}
+      else {
         enable = true;
-        inherit (cfg) externalInterface;
-        internalInterfaces = ["wg0"];
+        settings.interface = "wg0";
       };
-      firewall.allowedUDPPorts = [51820];
-
-      wireguard.interfaces = {
-        wg0 = {
-          ips = ["10.100.0.1/24"]; # ip and subnet of server end of tunnel
-          listenPort = 51820;
-          postSetup = ''
-            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o wlan0 -j MASQUERADE
-          '';
-          postShutdown = ''
-            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o wlan0 -j MASQUERADE
-          '';
-          privateKeyFile = config.age.secrets.wireguard.path;
-          peers = [
+    systemd.network = {
+      netdevs = {
+        "90-wg0" = {
+          netdevConfig = {
+            Kind = "wireguard";
+            Name = "wg0";
+          };
+          wireguardConfig = {
+            PrivateKeyFile = config.age.secrets.wg-pk-server.path;
+            ListenPort = 51820;
+          };
+          wireguardPeers = [
+            # client 1
             {
-              # phone
-              publicKey = "9xqt8T9gTtLTX1MjNyKJsY0CGzLqqGekvG9WUqwkyzs=";
-              allowedIPs = ["10.100.0.2/32"];
+              wireguardPeerConfig = {
+                PublicKey = "6uh1CPUJscxuTfrhiKj76741tsmp/cJYp7VqaIDzigo=";
+                AllowedIPs = ["10.100.0.2"];
+                PersistentKeepalive = 15;
+              };
             }
+            # client 2
             {
-              # thinkpad
-              publicKey = "9xqt8T9gTtLTX1MjNyKJsY0CGzLqqGekvG9WUqwkyzs=";
-              allowedIPs = ["10.100.0.3/32"];
+              wireguardPeerConfig = {
+                PublicKey = "juQP6cIW/eAgZomARSEZl3MIhLWhIsy8TYnd432chTE=";
+                AllowedIPs = ["10.100.0.3"];
+                PersistentKeepalive = 15;
+              };
             }
           ];
+        };
+      };
+      networks = {
+        "90-wg0" = {
+          matchConfig = {Name = "wg0";};
+          address = ["10.100.0.1/24"];
+          networkConfig = {
+            IPForward = true;
+            IPMasquerade = "ipv4";
+          };
         };
       };
     };
