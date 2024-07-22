@@ -12,7 +12,6 @@
 
   custom.services = {
     blocky.enable = true;
-    wireguard.server.enable = true;
     grafana.enable = true;
     prometheus.enable = true;
   };
