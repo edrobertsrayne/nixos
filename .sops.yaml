@@ -1,9 +1,13 @@
 keys:
   - &ed_nixpi age1ng05mqxjfvzhwfrgnpxd0se6neqsletw6dktu5jy6snxm9sd8feq9mleps
+  - &ed_imac age1n4378wwyn9prcldlw9u4cuq5tcevjsx5nk7huaqw5a24v6h8a9vs34qh68
   - &host_nixpi age1m0es7fguuqyjerdda8xnsst3zuj4n0sne53xux2sp8qj4mmxq4esvz6585
+  - &host_imac age1skkprrvz4g9zd4wsvjnf8yx5rdp90pgwqyxhgl2lxgs32cpvapmsy6n8eq
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
       - age:
         - *ed_nixpi
+        - *ed_imac
         - *host_nixpi
+        - *host_imac
