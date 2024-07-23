@@ -20,18 +20,10 @@
     fsType = "ext4";
   };
 
-  # fileSystems."/mnt/usb" = {
-  #   device = "/dev/disk/by-uuid/32A1-0C39";
-  #   fsType = "exfat";
-  #   options = [
-  #     "user"
-  #     "rw"
-  #     "exec"
-  #     "auto"
-  #     "async"
-  #     "umask=000"
-  #   ];
-  # };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/4039857d-e707-4772-89a4-e09224e948f4";
+    fsType = "ext4";
+  };
 
   swapDevices = [];
 
