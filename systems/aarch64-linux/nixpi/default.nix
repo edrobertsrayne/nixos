@@ -11,9 +11,9 @@
   suites.common.enable = true;
 
   custom.services = {
-    blocky.enable = true;
-    grafana.enable = true;
-    prometheus.enable = true;
+    blocky.enable = false;
+    grafana.enable = false;
+    prometheus.enable = false;
   };
 
   system.stateVersion = "23.11";
