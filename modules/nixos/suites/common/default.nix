@@ -28,8 +28,6 @@ in {
       udisks2.enable = mkDefault true;
     };
 
-    custom.services.podman.enable = mkDefault true;
-
     apps.nh.enable = mkDefault true;
 
     environment.systemPackages = with pkgs; [git vim coreutils wget];
