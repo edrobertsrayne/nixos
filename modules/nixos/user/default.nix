@@ -41,6 +41,7 @@ in {
           "video"
           "dialout"
           "input"
+          "docker"
         ]
         ++ cfg.extraGroups;
       shell = pkgs.zsh;
