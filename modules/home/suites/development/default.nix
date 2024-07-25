@@ -7,7 +7,7 @@ with lib;
 with lib.custom; let
   cfg = config.suites.development;
 
-  hosts = ["nixpi" "thinkpad" "imac" "macbook-air"];
+  hosts = ["homelab" "thinkpad" "imac" "macbook-air"];
   sshConfigForHost = host: ''
     Host ${host}
       Hostname ${host}.local
