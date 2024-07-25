@@ -28,6 +28,7 @@ in {
     };
 
     stylix = {
+      targets.kde.enable = false;
       fonts = {
         serif = {
           package = pkgs.noto-fonts;
