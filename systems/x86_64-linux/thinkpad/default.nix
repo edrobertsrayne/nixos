@@ -9,6 +9,8 @@
   suites.desktop.enable = true;
   suites.gaming.enable = true;
 
+  custom.services.cloudflare-warp.enable = true;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
