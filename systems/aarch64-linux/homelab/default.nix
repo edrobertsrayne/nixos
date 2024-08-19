@@ -16,5 +16,7 @@
 
   suites.common.enable = true;
 
+  custom.services.cloudflare-warp.enable = true;
+
   system.stateVersion = "23.11";
 }
