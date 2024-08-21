@@ -89,5 +89,19 @@ in {
 
       discord
     ];
+
+    xdg.desktopEntries = {
+      arduino-ide = {
+        name = "Arduino IDE";
+        exec = "arduino-ide --enable-features=UseOzonePlatform --ozone-platform=wayland %U";
+        categories = ["Development"];
+        comment = "Arduino IDE";
+        icon = "arduino-ide";
+        settings = {
+          StartupWMClass = "Arduino IDE";
+          X-AppImage-Version = "2.3.2";
+        };
+      };
+    };
   };
 }
