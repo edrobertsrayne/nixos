@@ -144,8 +144,6 @@
   environment = {
     persistence."/nix/persist" = {
       directories = [
-        "/etc/nixos"
-        "/srv"
         "/var/lib"
         "/var/log"
       ];
