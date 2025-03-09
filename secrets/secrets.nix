@@ -4,4 +4,5 @@ let
   systems = [imac nixos];
 in {
   "pve-exporter.age".publicKeys = systems;
+  "tailscale.age".publicKeys = systems;
 }
