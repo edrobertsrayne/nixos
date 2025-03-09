@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./grafana
+    ./homelab
   ];
 
   boot.loader.grub = {
@@ -21,6 +21,12 @@
   # };
 
   age.secrets.tailscale.file = ./secrets/tailscale.age;
+
+  homelab.services = {
+    grafana.enable = true;
+    prometheus.enable = true;
+    loki.enable = true;
+  };
 
   services = {
     tailscale = {
