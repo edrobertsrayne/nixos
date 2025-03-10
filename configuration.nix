@@ -15,11 +15,6 @@
 
   users.users.root.initialHashedPassword = "$y$j9T$e/DtTAo6OsBLl22niFmga1$XxcLQzrFntBS0RFKs.y2On/cGuR5HtV3BGuuKHk3j75";
 
-  # security.acme = {
-  #   acceptTerms = true;
-  #   defaults.email = "ed.rayne@gmail.com";
-  # };
-
   age.secrets.tailscale.file = ./secrets/tailscale.age;
 
   homelab.services = {
@@ -42,12 +37,6 @@
         enable = true;
         addresses = true;
       };
-    };
-
-    nginx = {
-      enable = true;
-      recommendedTlsSettings = true;
-      recommendedProxySettings = true;
     };
 
     qemuGuest.enable = true;
